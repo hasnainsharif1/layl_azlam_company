@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Layl Azlam Establishment</title>
+  <meta name="description" content="Get in touch with Layl Azlam Establishment in Al Jubail, Saudi Arabia. Phone, WhatsApp, address, live map, and an online contact form.">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Contact Layl Azlam Establishment">
+  <meta property="og:description" content="Reach Layl Azlam Establishment by phone, WhatsApp, or the contact form. Based in Al Safat District, Al Jubail, Saudi Arabia.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/images/og-image.png">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&family=Noto+Kufi+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- ============================= HEADER ============================= -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="index.html" class="logo-link" aria-label="Layl Azlam Establishment home">
+        <img src="assets/images/logo.png" alt="Layl Azlam Establishment logo" class="logo-img" width="44" height="44">
+        <span class="logo-text">
+          <span class="logo-en">Layl Azlam</span>
+          <span class="logo-ar" lang="ar">مؤسسة ليل أظلام</span>
+        </span>
+      </a>
+      <nav class="main-nav" id="mainNav" aria-label="Primary">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="blog/index.html">Blog</a></li>
+          <li><a href="contact.html" aria-current="page">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a href="tel:+966553585140" class="header-phone">+966 55 358 5140</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mainNav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============================= PAGE BANNER ============================= -->
+    <section class="page-banner" style="--banner-image: url('assets/images/cta-handshake.png');">
+      <div class="container">
+        <p class="eyebrow">We'd Love To Hear From You</p>
+        <h1>Get In Touch</h1>
+      </div>
+    </section>
+
+    <!-- ============================= CONTACT INFO + FORM ============================= -->
+    <section class="section">
+      <div class="arc-motif arc-motif--top-left" aria-hidden="true"></div>
+      <div class="container">
+        <div class="grid" style="grid-template-columns: 1fr; gap: 3rem;">
+
+          <!-- Contact details -->
+          <div>
+            <p class="eyebrow">Contact Details</p>
+            <h2 style="margin-bottom: 1.5rem;">Reach Us Directly</h2>
+            <ul class="contact-info-list" style="margin-bottom: 2rem;">
+              <li>
+                <span class="check-mark" aria-hidden="true">☎</span>
+                <span><strong>Phone</strong><br><a href="tel:+966553585140" class="text-link">+966 55 358 5140</a></span>
+              </li>
+              <li>
+                <span class="check-mark" aria-hidden="true">⚑</span>
+                <span><strong>Address</strong><br>Al Oqair Street, Al Safat District,<br>Al Jubail, Eastern Province, Kingdom of Saudi Arabia</span>
+              </li>
+              <li>
+                <span class="check-mark" aria-hidden="true">#</span>
+                <span><strong>CR Number</strong><br>7054761163 (Active)</span>
+              </li>
+            </ul>
+            <div class="btn-row">
+              <a href="tel:+966553585140" class="btn btn-primary">Call Us</a>
+              <a href="https://wa.me/966553585140" target="_blank" rel="noopener noreferrer" class="btn whatsapp-btn">Message on WhatsApp</a>
+            </div>
+          </div>
+
+          <!-- Contact form -->
+          <div>
+            <p class="eyebrow">Send A Message</p>
+            <h2 style="margin-bottom: 1.5rem;">Contact Form</h2>
+
+            <div class="form-success" id="formSuccess" role="status">
+              <span aria-hidden="true">✓</span>
+              <span>Thank you — your message has been received. We'll get back to you directly.</span>
+            </div>
+
+            <!--
+              This is a static, front-end-only site with no backend yet, so this form
+              currently only shows the "thank you" confirmation above via main.js and
+              does not actually transmit any data. Once hosting is set up, connect a
+              real submission service (e.g. Formspree, Netlify Forms, or a small
+              custom backend) by pointing this <form>'s action/method at that service.
+            -->
+            <form id="contactForm" class="form-grid">
+              <div class="form-field">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required>
+              </div>
+              <div class="form-field">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+              <div class="form-field">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone">
+              </div>
+              <div class="form-field">
+                <label for="subject">Subject</label>
+                <select id="subject" name="subject" required>
+                  <option value="">Select a division…</option>
+                  <option value="construction">Construction &amp; Contracting</option>
+                  <option value="manpower">Manpower Supply</option>
+                  <option value="food">Food Processing &amp; Preservation</option>
+                  <option value="transport">Transport &amp; Logistics</option>
+                  <option value="hospitality">Hospitality &amp; Accommodation</option>
+                  <option value="general">General Inquiry</option>
+                </select>
+              </div>
+              <div class="form-field full">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+              </div>
+              <div class="form-field full">
+                <button type="submit" class="btn btn-primary">Send Message</button>
+                <p class="form-note" style="margin-top: 0.75rem;">This form does not send email yet — see the note in the page source for setup details.</p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="wave-divider" aria-hidden="true">
+      <svg viewBox="0 0 1200 40" preserveAspectRatio="none">
+        <path d="M0,20 C300,50 900,-10 1200,20 L1200,40 L0,40 Z" fill="#C9A227" opacity="0.5"></path>
+      </svg>
+    </div>
+
+    <!-- ============================= MAP ============================= -->
+    <section class="section section--cream">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Find Us</p>
+          <h2>Al Safat District, Al Jubail</h2>
+        </div>
+        <div class="map-frame">
+          <iframe
+            src="https://maps.google.com/maps?q=27.011639,49.662222&z=15&output=embed"
+            width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"
+            title="Map showing Layl Azlam Establishment's location in Al Safat District, Al Jubail">
+          </iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================= FOOTER ============================= -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-col footer-about">
+        <img src="assets/images/logo.png" alt="Layl Azlam Establishment logo" class="footer-logo" width="52" height="52">
+        <p class="footer-tagline">Construction, Manpower, Supply, Transport &amp; Hospitality — Al Jubail, Saudi Arabia.</p>
+        <p class="footer-ar" lang="ar">مؤسسة ليل أظلام</p>
+      </div>
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="blog/index.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Contact</h3>
+        <address>
+          <p>Al Oqair Street, Al Safat District,<br>Al Jubail, Eastern Province, Saudi Arabia</p>
+          <p><a href="tel:+966553585140">+966 55 358 5140</a></p>
+          <p>CR No. 7054761163</p>
+        </address>
+      </div>
+      <div class="footer-col footer-vision">
+        <h3>National Alignment</h3>
+        <div class="vision-badge">
+          <img src="assets/images/vision2030.png" alt="Saudi Vision 2030 logo" width="64" height="48" loading="lazy">
+          <span>Proud to Support Saudi Vision 2030</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>&copy; 2026 Mo'assasat Layl Azlam (<span lang="ar">مؤسسة ليل أظلام</span>). All rights reserved.</p>
+        <p>CR No. 7054761163</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
