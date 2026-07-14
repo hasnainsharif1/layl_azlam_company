@@ -49,6 +49,7 @@ body {
   min-height: 100vh;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 img,
@@ -1222,4 +1223,73 @@ select:focus-visible {
   .vm-card {
     padding: 1.5rem 1.25rem;
   }
+}
+
+/* -------------------------------------------------------------------------
+   17. SCROLL REVEAL ANIMATIONS
+   assets/js/main.js tags existing elements with .reveal + a direction
+   modifier, then flips on .is-visible via IntersectionObserver as each one
+   scrolls into view. Fully disabled under prefers-reduced-motion — the
+   elements simply render in their final state with no transition at all.
+   ------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    opacity: 0;
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .reveal-up    { transform: translateY(42px); }
+  .reveal-down  { transform: translateY(-42px); }
+  .reveal-left  { transform: translateX(-46px); }
+  .reveal-right { transform: translateX(46px); }
+  .reveal-scale { transform: scale(0.92); }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  .reveal-stagger > *,
+  .reveal-stagger-left > *,
+  .reveal-stagger-right > * {
+    opacity: 0;
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .reveal-stagger > *       { transform: translateY(42px); }
+  .reveal-stagger-left > *  { transform: translateX(-46px); }
+  .reveal-stagger-right > * { transform: translateX(46px); }
+
+  .reveal-stagger.is-visible > *,
+  .reveal-stagger-left.is-visible > *,
+  .reveal-stagger-right.is-visible > * {
+    opacity: 1;
+    transform: none;
+  }
+
+  .reveal-stagger > *:nth-child(1),
+  .reveal-stagger-left > *:nth-child(1),
+  .reveal-stagger-right > *:nth-child(1) { transition-delay: 0.05s; }
+
+  .reveal-stagger > *:nth-child(2),
+  .reveal-stagger-left > *:nth-child(2),
+  .reveal-stagger-right > *:nth-child(2) { transition-delay: 0.15s; }
+
+  .reveal-stagger > *:nth-child(3),
+  .reveal-stagger-left > *:nth-child(3),
+  .reveal-stagger-right > *:nth-child(3) { transition-delay: 0.25s; }
+
+  .reveal-stagger > *:nth-child(4),
+  .reveal-stagger-left > *:nth-child(4),
+  .reveal-stagger-right > *:nth-child(4) { transition-delay: 0.35s; }
+
+  .reveal-stagger > *:nth-child(5),
+  .reveal-stagger-left > *:nth-child(5),
+  .reveal-stagger-right > *:nth-child(5) { transition-delay: 0.45s; }
+
+  .reveal-stagger > *:nth-child(6),
+  .reveal-stagger-left > *:nth-child(6),
+  .reveal-stagger-right > *:nth-child(6) { transition-delay: 0.55s; }
 }
