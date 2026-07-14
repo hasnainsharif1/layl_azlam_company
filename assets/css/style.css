@@ -784,7 +784,16 @@ select:focus-visible {
     url("../images/hero-home.png");
   background-size: cover;
   background-position: center;
+  background-attachment: fixed;
   color: var(--white);
+}
+
+/* iOS Safari mostly ignores background-attachment: fixed and can jank when it
+   tries; scroll normally on touch/small screens instead. */
+@media (max-width: 768px), (hover: none) {
+  .hero {
+    background-attachment: scroll;
+  }
 }
 
 .hero-inner {
