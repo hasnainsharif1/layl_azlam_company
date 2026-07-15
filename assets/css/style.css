@@ -21,6 +21,7 @@
      14. Responsive breakpoints
      15. Page transitions (View Transitions API)
      16. Scroll reveal animations
+     17. Design accents (texture, depth, hover polish — no new colors)
    ========================================================================= */
 
 /* -------------------------------------------------------------------------
@@ -255,11 +256,11 @@ select:focus-visible {
    ------------------------------------------------------------------------- */
 .arc-motif {
   position: absolute;
-  width: 260px;
-  height: 260px;
+  width: 360px;
+  height: 360px;
   border-radius: 50%;
-  border: 1px solid var(--gold);
-  opacity: 0.15;
+  border: 2px solid var(--gold);
+  opacity: 0.25;
   pointer-events: none;
   z-index: 0;
 }
@@ -267,10 +268,10 @@ select:focus-visible {
 .arc-motif::before {
   content: "";
   position: absolute;
-  inset: 28px;
+  inset: 36px;
   border-radius: 50%;
-  border: 1px solid var(--navy);
-  opacity: 0.6;
+  border: 2px solid var(--navy);
+  opacity: 0.5;
 }
 
 .arc-motif--top-left {
@@ -314,7 +315,8 @@ select:focus-visible {
   font-weight: 600;
   font-size: 0.95rem;
   border: 2px solid transparent;
-  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease,
+    transform 0.2s ease, box-shadow 0.2s ease;
   white-space: nowrap;
 }
 
@@ -779,16 +781,48 @@ select:focus-visible {
    ------------------------------------------------------------------------- */
 .hero {
   position: relative;
+  overflow: hidden;
   min-height: 88vh;
   display: flex;
   align-items: center;
   background-color: var(--navy-2);
-  background-image: linear-gradient(rgba(11, 27, 46, 0.55), rgba(11, 27, 46, 0.55)),
+  background-image: linear-gradient(135deg, rgba(11, 27, 46, 0.45), rgba(11, 27, 46, 0.7)),
     url("../images/hero-home.webp");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   color: var(--white);
+}
+
+/* Large hexagon watermark echoing the logo mark — a deliberate brand tie-in,
+   kept low-opacity and off in the corner so it never competes with the
+   hero photo or text. */
+.hero::before {
+  content: "";
+  position: absolute;
+  bottom: -90px;
+  right: -90px;
+  width: 340px;
+  height: 340px;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  background-color: var(--gold);
+  opacity: 0.14;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  top: -60px;
+  left: -60px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 2px solid var(--gold-light);
+  opacity: 0.2;
+  pointer-events: none;
+  z-index: 0;
 }
 
 /* iOS Safari mostly ignores background-attachment: fixed and can jank when it
@@ -837,13 +871,49 @@ select:focus-visible {
 
 .page-banner {
   position: relative;
+  overflow: hidden;
   padding: 6rem 0 4rem;
   background-color: var(--navy-2);
-  background-image: linear-gradient(rgba(11, 27, 46, 0.6), rgba(11, 27, 46, 0.6)), var(--banner-image, none);
+  background-image: linear-gradient(180deg, rgba(11, 27, 46, 0.68), rgba(11, 27, 46, 0.48)), var(--banner-image, none);
   background-size: cover;
   background-position: center;
   color: var(--white);
   text-align: center;
+}
+
+/* Bold ring accents peeking from opposite corners of every page banner —
+   the site's recurring circular motif, sized up for real visibility here. */
+.page-banner::before {
+  content: "";
+  position: absolute;
+  top: -90px;
+  right: -90px;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  opacity: 0.28;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.page-banner::after {
+  content: "";
+  position: absolute;
+  bottom: -70px;
+  left: -70px;
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+  border: 2px solid var(--gold-light);
+  opacity: 0.22;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.page-banner .container {
+  position: relative;
+  z-index: 1;
 }
 
 .page-banner h1 {
@@ -1324,4 +1394,119 @@ select:focus-visible {
   .reveal-stagger > *:nth-child(6),
   .reveal-stagger-left > *:nth-child(6),
   .reveal-stagger-right > *:nth-child(6) { transition-delay: 0.55s; }
+}
+
+/* -------------------------------------------------------------------------
+   17. DESIGN ACCENTS
+   A restrained polish pass — texture, depth, and hover feedback using only
+   the existing color tokens (no new colors, no markup changes). Kept
+   deliberately subtle: every texture/glow below stays low-opacity so it
+   reads as material quality, never as visual noise.
+   ------------------------------------------------------------------------- */
+
+/* Small gold accent tick before every eyebrow label site-wide — ties every
+   section header, banner, and division heading together visually. */
+.eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 22px;
+  height: 2px;
+  margin-right: 0.5em;
+  background-color: var(--gold);
+  vertical-align: middle;
+  transform: translateY(-2px);
+}
+
+/* Dot-grid texture on cream sections — a quiet nod to technical drawings,
+   fitting for a construction & industrial business. */
+.section--cream {
+  background-image: radial-gradient(rgba(201, 162, 39, 0.22) 1.8px, transparent 1.8px);
+  background-size: 26px 26px;
+}
+
+/* Gold glow + ring accents on the flat navy CTA band and footer */
+.cta-band {
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-band::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 12% 15%, rgba(201, 162, 39, 0.16), transparent 55%),
+    radial-gradient(circle at 88% 88%, rgba(201, 162, 39, 0.1), transparent 50%);
+  pointer-events: none;
+}
+
+.cta-band::after {
+  content: "";
+  position: absolute;
+  top: -70px;
+  left: -70px;
+  width: 210px;
+  height: 210px;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+.cta-band > .container {
+  position: relative;
+  z-index: 1;
+}
+
+.site-footer {
+  position: relative;
+  overflow: hidden;
+}
+
+.site-footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 0%, rgba(201, 162, 39, 0.1), transparent 60%);
+  pointer-events: none;
+}
+
+.footer-grid {
+  position: relative;
+  z-index: 1;
+}
+
+/* Consistent gold top-accent across every card type (vm-card already had
+   one) so the whole card system shares one visual language */
+.card,
+.blog-card {
+  border-top: 3px solid var(--gold);
+}
+
+/* Card & button hover feedback — lift + soft shadow, no color changes */
+.card,
+.blog-card,
+.vm-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.card:hover,
+.blog-card:hover,
+.vm-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-soft);
+}
+
+.card:hover {
+  border-color: var(--gold-light);
+}
+
+.btn:hover,
+.btn:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(18, 40, 63, 0.18);
+}
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: none;
 }
