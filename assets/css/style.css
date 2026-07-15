@@ -19,6 +19,8 @@
      12. Forms
      13. Utility classes
      14. Responsive breakpoints
+     15. Page transitions (View Transitions API)
+     16. Scroll reveal animations
    ========================================================================= */
 
 /* -------------------------------------------------------------------------
@@ -782,7 +784,7 @@ select:focus-visible {
   align-items: center;
   background-color: var(--navy-2);
   background-image: linear-gradient(rgba(11, 27, 46, 0.55), rgba(11, 27, 46, 0.55)),
-    url("../images/hero-home.png");
+    url("../images/hero-home.webp");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -1226,7 +1228,37 @@ select:focus-visible {
 }
 
 /* -------------------------------------------------------------------------
-   17. SCROLL REVEAL ANIMATIONS
+   15. PAGE TRANSITIONS (View Transitions API)
+   Native browser feature — a smooth crossfade between full-page
+   navigations on the same origin, instead of the usual instant/blank
+   swap. Zero JS, zero framework, zero server involvement. Supported in
+   Chrome/Edge (126+); everywhere else this rule is simply ignored and
+   navigation behaves exactly as it does today — no regression either way.
+   ------------------------------------------------------------------------- */
+@view-transition {
+  navigation: auto;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  ::view-transition-old(root) {
+    animation: fade-out 0.25s ease-out both;
+  }
+
+  ::view-transition-new(root) {
+    animation: fade-in 0.32s ease-out both;
+  }
+
+  @keyframes fade-out {
+    to { opacity: 0; }
+  }
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+  }
+}
+
+/* -------------------------------------------------------------------------
+   16. SCROLL REVEAL ANIMATIONS
    assets/js/main.js tags existing elements with .reveal + a direction
    modifier, then flips on .is-visible via IntersectionObserver as each one
    scrolls into view. Fully disabled under prefers-reduced-motion — the
