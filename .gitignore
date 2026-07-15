@@ -14,3 +14,9 @@ Thumbs.db
 
 # Dependencies (if a build step is ever added)
 node_modules/
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+!.env.example
